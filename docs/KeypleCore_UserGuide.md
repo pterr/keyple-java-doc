@@ -82,10 +82,12 @@ For a classic plugin, the number of readers is determinate, all the plugged read
 
 #### HSM support
 An HSM (Hardware Security Module) is electronic board able to emulate a huge number (several thousands) of smart card readers embedding SE.
+
  - The multitude of embedded SE could be divided in different groups of profiles.
  - An HSM is often shared between several services, so the full set of readers isn't directly available for a service, a service has to request the allocation of a reader from a specific group.
 
 The SE Proxy Service could support HSM though plugins managing "pool" of readers (ReaderPoolPlugin).
+
  - At the initialization, the list of reader is empty. The list is be filled depending on the reader allocations requested.
  - When not more required, a reader could be released from the pool.
 
@@ -93,10 +95,12 @@ All plugins have to implement the interface ReaderPlugin and SeReader. A plugin 
 
 #### SE presence check & “explicit selection transaction”
 A SE reader has the capability to check is a SE is present or not.
+
 > For SE terminal processing for which the presence of a SE in a reader is "static' during a transaction, the transaction starts in general with the verification of the SE presence. If the SE is present, the transaction can continue with the selection of the SE. We call this kind of transaction: an "explicit selection transaction".
 
 ### Plugin setting
 To secure the usage of the SE Proxy API for the development of terminal applications, the internal implementation of plugins (classes SpecificPluginImpl & SpecificReaderImpl) is hidden.
+
  - For a specific plugin, only the plugin & reader interfaces (SpecificPlugin & SpecificReader) and the factory (class SpecificPluginFactory) are public.
  - The factory of a plugin is set to register a specific plugin to the SE Proxy Service.
 
@@ -114,16 +118,20 @@ E.g., in transportation, the ticketing transaction of access control gates is of
 ![SE Proxy - Observer Pattern scheme](img/KeypleCore-3-SE_Proxy-ObserverPattern.png "SE Proxy - Observer Pattern")
 
 A plugin could be optionally observable (by implementing ObservablePlugin).
+
  - In this case a terminal application could observe the plugin (by implementing PluginObserver) in order to be notified (PluginEvent) when a new reader is plugged to the plugin, or when a referenced reader is unplugged.
  - To receive the notification of a specific plugin, the plugin observer should first be added to the observer list of the observable plugin.
 
 Depending on the capability of the plugin, a reader could be optionally observable (by implementing ObservableReader).
+
  - A terminal application could observe the plugin (by implementing ReaderObserver) in order to be notified (ReaderEvent) when a SE is inserted or removed from a specific.
  - The reader observer should be added to the observer list to receive the notifications the observable reader.
+
 By default, an observable reader notifies only the insertion or the remove of a SE.
 
 #### Automatic selection & “default selection transaction”
 On an observable reader, there is in addition the possibility to define a "default selection operation": in this case, when a SE is inserted, the observable reader tries automatically to select the inserted SE using the defined default setting.
+
  - If the inserted SE is successfully selected, then the observable reader notifies that "an inserted SE has matched the default selection" and provides the corresponding response.
  - Otherwise if the observable reader failed to select the inserted SE, it could just notify that a SE has been inserted.
 
@@ -139,6 +147,7 @@ An observable plugin automatically starts to observe plugin events when at least
 
 #### Reader observability state machines & “SE removal procedure”
 For an observable reader, the listening of reader event requires also the registration of at least one reader observer.
+
  - Listening start - Then the SE detection starts only if it is explicitly requested by an observer.
  - SE detection - If a SE is inserted or selected, the registered reader observers are notified by the observable reader.
  - SE processing - During the SE processing by the observers, the observable reader wait that an observer acknowledges the end of the SE processing.
@@ -154,6 +163,7 @@ The SE insertion listening could also be stopped by an observer.
 ## Secure Element Selection API
 ### Selection parameters (Communication protocol, ATR, AID)
 To select a Secure Element, a SE Selector has to be defined, based on one to three parameters.
+
  - A SE selection could be defined for a specific communication protocol.
  - A SE could be filtered for an ATR (Answer To Reset) matching a specific regular expression.
  - A specific application of a SE could be selected by setting its AID (Application IDentifier). 
@@ -165,12 +175,14 @@ To select a Secure Element, a SE Selector has to be defined, based on one to thr
 To operate a transaction with a SE, it should be firstly selected. The aim of the SE selection API is to get a SE resource: a set of a reader with a selected SE.
 
 A SE Selection is managed in two steps:
+
  - first the “preparations” of selection request based on SE selector,
  - next the “processing” of the selection requests.
 
 In order to manage multiple kinds of SE, several selection requests could be prepared with different selectors.
 
 Depending on the setting of the reader, the processing of the selection could be operated in two different ways:
+
  - either in a “explicit” way after the checking of the SE presence,
  - or in a ”default” way for an observable reader detecting the insertion of a SE.
 
@@ -180,9 +192,11 @@ Depending on the setting of the reader, the processing of the selection could be
 ![SE Proxy - SE Selection scheme](img/KeypleCore-6-SE_Proxy-SE_Selection.png "SE Proxy - SE Selection")
 
 In case a SE Selection is prepared with a channel control mode defined as “keep open”, then the different prepared selectors are operated with the presented SE, but the processing of the selection stops when a selector matches the SE.
+
  - The result of the SE selection could be a single ‘matching SE’: this SE is kept as selected in the reader. It’s possible to directly operate command with the SE.
 
 But if a SE selection has been defined with a channel control mode at “close after”, in this case all the prepared SE selectors are operated whatever the matching result.
+
  - After each selector processing, if a selector has matched, the logical channel with the SE is closed (the SE is no more selected).
  - If several applications of the presented SE have matched the selectors: the result of the processing of SE selections is a list matching SE, but all of them are deselected. To continue the SE processing, the terminal application has to choose one matching SE, and to select it again but in “keep open” channel control mode.
 

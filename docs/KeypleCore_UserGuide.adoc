@@ -89,6 +89,7 @@ All plugins have to implement the interface ReaderPlugin and SeReader. A plugin 
 
 ==== SE presence check & “explicit selection transaction”
 A SE reader has the capability to check is a SE is present or not.
+
 > For SE terminal processing for which the presence of a SE in a reader is "static' during a transaction, the transaction starts in general with the verification of the SE presence. If the SE is present, the transaction can continue with the selection of the SE. We call this kind of transaction: an "explicit selection transaction".
 
 === Plugin setting
