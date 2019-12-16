@@ -445,12 +445,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Terminal application Calypso API for: 'Calypso Portable Object' selection and transaction*</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><strong>Terminal application Calypso API for: 'Calypso Portable Object' selection and transaction</strong></p>
 </div>
 </div>
 </div>
@@ -538,9 +534,13 @@ cf. <a href="https://github.com/eclipse/keyple-java/blob/develop/java/example/ca
 </div>
 </blockquote>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="./img/KeypleCalypso-1-Transaction-PO_Selection.svg" alt="Calypso - PO Selection">
+</div>
+</div>
 <div class="paragraph">
-<p>![Calypso - PO Selection scheme](img/KeypleCalypso-1-Transaction-PO_Selection.png "Calypso - PO Selection")
-A ‘PO resource’ is the set of a Calypso PO and the on which it is selected.</p>
+<p>A ‘PO resource’ is the set of a Calypso PO and the on which it is selected.</p>
 </div>
 <div class="paragraph">
 <p>In a same way the Calypso APO provides the tool to select a Calypso security module (a SAM). A SAM selector doesn’t support AID. The corresponding matching SE is a Calypso SAM. A Calypso SAM and the reader used for its selection defines a ‘SAM resource’.</p>
@@ -564,25 +564,32 @@ A ‘PO resource’ is the set of a Calypso PO and the on which it is selected.<
 <li>
 <p>A ‘process” method sends to the PO at least the previously prepared command.
 The process PO commands method could operated only in no secure session is currently open with the PO. If one or several PO commands have been prepared, a single request is done to the PO reader.</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>The process opening method allows to manage the opening of a secure session.</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>First a single request is operated to the SAM reader in order to set the PO serial as the cryptographic diversifier, and to get the terminal challenge for the session.</p>
 </li>
 <li>
 <p>Then another single request is done to the PO reader to play the prepared PO command, and to manage the opening of the PO session.</p>
 </li>
+</ul>
+</div>
+</li>
 <li>
 <p>A process PO command in session method could be processed only if a secure session is already open with PO.</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>A single request Is operated with the PO reader to operate the prepared PO commands.</p>
 </li>
 <li>
 <p>Another single request is sent to the SAM reader to update the update the digest of the MAC session.</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>The process closing method is used to manage the closing of the secure session with the PO.</p>
 </li>
@@ -594,6 +601,15 @@ The process PO commands method could operated only in no secure session is curre
 </li>
 <li>
 <p>Finally, a second SAM request allows to authenticate the PO. If the transaction is successful the mutual authentication is valid, and the PO has atomically committed the requested data updates.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -610,8 +626,10 @@ The process PO commands method could operated only in no secure session is curre
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>![Calypso - PO Transaction scheme](img/KeypleCalypso-2-Transaction-PO_Session.png "Calypso - PO Transaction")</p>
+<div class="imageblock">
+<div class="content">
+<img src="./img/KeypleCalypso-2-Transaction-PO_Session.svg" alt="Calypso - PO Transaction">
+</div>
 </div>
 <div class="paragraph">
 <p>By default, the PO transaction manages the Calypso secure session as ‘atomic’: the cumulative amount of PO updates command can’t exceed the size of the PO session buffer.
@@ -626,7 +644,7 @@ The process PO commands method could operated only in no secure session is curre
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-16 21:39:41 ╬le Maurice
+Last updated 2019-12-16 22:05:06 ╬le Maurice
 </div>
 </div>
 </body>
