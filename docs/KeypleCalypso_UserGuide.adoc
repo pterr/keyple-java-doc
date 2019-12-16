@@ -31,13 +31,14 @@ The **Keyple Calypso User API is an extension of the Keyple Core User API** to m
 | Selection of Calypso SE: PO or SAM
 
   PO transaction:
-  - Read / update of data</li>
-  - PO authentication</li>
+  - Read / update of data
+  - PO authentication
 | org.eclipse.keyple.calypso.**transaction**
 | Notifications of reader plug/unplug, of SE insertion/remove
  - definition of automatic selection request in case of SE insertion on an Observable Reader.
 | org.eclipse.keyple.core.seproxy.**event**
 | Notifications of reader plug/unplug, of SE insertion/remove
+
  - definition of automatic selection request in case of SE insertion on an Observable Reader.
 | org.eclipse.keyple.calypso.**command.po.parser**
 |===
@@ -54,6 +55,7 @@ The Calypso API to select a Portable object is an extension of the generic Secur
 The PO command grouped with the PO selection have to be “prepared” before the processing of a default or explicit SE selection.
 
 > cf. https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase1_ExplicitSelectionAid/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase1/ExplicitSelectionAid_Pcsc.java[“Calypso Use Case 1 / Explicit AID Selection”] example
+
 > cf. https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase2_DefaultSelectionNotification/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase2/DefaultSelectionNotification_Pcsc.java[“Calypso Use Case 2 / Default Selection Notification”] example
 
 image::./img/KeypleCalypso-1-Transaction-PO_Selection.svg[Calypso - PO Selection]
@@ -94,4 +96,4 @@ By default, the PO transaction manages the Calypso secure session as ‘atomic�
 
 The PO transaction could also be defined to allow multiple sessions: in this case the transaction is automatically split in several session as necessary.
 
-> cf. “https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase5_MultipleSession/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase5/MultipleSession_Pcsc.java[“Calypso Use Case 5 / PO Multiple Session”] example
+> cf. https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase5_MultipleSession/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase5/MultipleSession_Pcsc.java[“Calypso Use Case 5 / PO Multiple Session”] example
