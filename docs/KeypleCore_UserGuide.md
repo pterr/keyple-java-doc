@@ -1,4 +1,3 @@
-
 # Keyple ‘Core’ – User guide (high level API)
 >**Terminal application generic API for: reader access, and generic 'Secure Element' selection**
 

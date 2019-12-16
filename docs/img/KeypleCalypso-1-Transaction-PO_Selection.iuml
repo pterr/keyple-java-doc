@@ -90,12 +90,14 @@ FileOccurrence fileOccurrence, FileControlInformation fileControlInformation)
 
 +class "<b>final</b> PoSelectionRequest" as PoSelectionRequest {
 	+PoSelectionRequest(PoSelector seSelector, ChannelState channelState)
+
 	+int prepareReadRecordsCmd(byte sfi, ReadDataStructure readDataStructureEnum,
 byte firstRecordNumber, int expectedLength, String extraInfo)
 	+int prepareReadRecordsCmd(byte sfi, ReadDataStructure readDataStructureEnum,
 byte firstRecordNumber, String extraInfo)
 	+int prepareSelectFileCmd(byte[] path, String extraInfo)
 	+int prepareSelectFileCmd(SelectFileCmdBuild.SelectControl selectControl, String extraInfo)
+
 	+int preparePoCustomReadCmd(String name, ApduRequest apduRequest)
 	+int preparePoCustomModificationCmd(String name, ApduRequest apduRequest)
 	+AbstractApduResponseParser getCommandParser(SeResponse seResponse, int commandIndex)
