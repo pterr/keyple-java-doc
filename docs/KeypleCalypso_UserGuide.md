@@ -45,7 +45,7 @@ The PO command grouped with the PO selection have to be “prepared” before th
 > cf. [“Calypso Use Case 1 / Explicit AID Selection”](https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase1_ExplicitSelectionAid/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase1/ExplicitSelectionAid_Pcsc.java) example<br>
 > cf. [“Calypso Use Case 2 / Default Selection Notification”](https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase2_DefaultSelectionNotification/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase2/DefaultSelectionNotification_Pcsc.java) example
 
-![Calypso - PO Selection scheme](img/KeypleCalypso-1-Transaction-PO_Selection.png "Calypso - PO Selection")
+![Calypso - PO Selection scheme](img/KeypleCalypso-1-Transaction-PO_Selection.svg "Calypso - PO Selection")
 A ‘PO resource’ is the set of a Calypso PO and the reader on which it is selected.
 
 In a same way the Calypso APO provides the tool to select a Calypso security module (a SAM). A SAM selector doesn’t support AID. The corresponding matching SE is a Calypso SAM. A Calypso SAM and the reader used for its selection defines a ‘SAM resource’.
@@ -75,7 +75,7 @@ The minimal costs of a Calypso secure session are:
  - 3 PO requests (1 for the PO selection + 1 for the PO session opening + 1 for the PO session closing).
  - And 3 SAM requests if the SAM is already selected (1 for the PO session opening + 2 for the PO session closing); otherwise 4 SAM requests if the SAM isn’t already selected.
 
-![Calypso - PO Transaction scheme](img/KeypleCalypso-2-Transaction-PO_Session.png "Calypso - PO Transaction")
+![Calypso - PO Transaction scheme](img/KeypleCalypso-2-Transaction-PO_Session.svg "Calypso - PO Transaction")
 
 By default, the PO transaction manages the Calypso secure session as ‘atomic’: the cumulative amount of PO updates command can’t exceed the size of the PO session buffer.
 > cf. [“Calypso Use Case 4 / PO Authentication”](https://github.com/eclipse/keyple-java/blob/develop/java/example/calypso/pc/UseCase4_PoAuthentication/src/main/java/org/eclipse/keyple/example/calypso/pc/usecase4/PoAuthentication_Pcsc.java) example
