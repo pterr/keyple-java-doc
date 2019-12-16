@@ -34,12 +34,7 @@ The **Keyple Calypso User API is an extension of the Keyple Core User API** to m
   - Read / update of data
   - PO authentication
 | org.eclipse.keyple.calypso.**transaction**
-| Notifications of reader plug/unplug, of SE insertion/remove
- - definition of automatic selection request in case of SE insertion on an Observable Reader.
-| org.eclipse.keyple.core.seproxy.**event**
-| Notifications of reader plug/unplug, of SE insertion/remove
-
- - definition of automatic selection request in case of SE insertion on an Observable Reader.
+| Calypso PO responses data parsing
 | org.eclipse.keyple.calypso.**command.po.parser**
 |===
 

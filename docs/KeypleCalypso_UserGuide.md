@@ -26,8 +26,7 @@ PO transaction:
     <td width="35%">org.eclipse.keyple.calypso.<b>transaction<b></td>
   </tr>
   <tr>
-    <td>Notifications of reader plug/unplug, of SE insertion/remove
-<li>definition of automatic selection request in case of SE insertion on an Observable Reader.</li></td>
+    <td>Calypso PO responses data parsing</td>
     <td>org.eclipse.keyple.calypso.<b>command.po.parser<b></td>
   </tr>  
 </table>
