@@ -1,8 +1,8 @@
 # Keyple ‘Calypso’ – User guide (high level API)
 >** Terminal application Calypso API for: 'Calypso Portable Object' selection and transaction**
 
-[1  Packages & features]       (#packages--features)<br>
-[2  Calypso Selection]         (#calypso-selection)<br>
+[1  Packages & features](#packages--features)<br>
+[2  Calypso Selection](#calypso-selection)<br>
 [3  Calypso secure transaction](#calypso-secure-transaction)<br>
 
 ## Packages & features
